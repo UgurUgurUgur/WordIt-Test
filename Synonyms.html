@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synonyms</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@100&display=swap');
+
+        body {
+            background-image: url('https://wallpaperaccess.com/full/253342.jpg');
+            background-position: top left;
+            background-size: cover;
+            position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            margin: O;
+        }
+
+        .container {
+            background-color: #000000e6;
+            margin-top: 200px;
+            border-radius: 5px;
+        }
+
+        .center {
+            font-family: "Taviraj";
+            margin-top: -12px;
+            margin-bottom: 0.5rem;
+            font-weight: 1000;
+            font-size: 100px;
+            text-align: center;
+            line-height: 1.2;
+            color: #d18800;
+        }
+
+        .form-control {
+            background-color: rgba(245, 222, 179, 0.482);
+        }
+
+        .form-control:focus {
+            color: white;
+            background-color: #f5deb370;
+            border: #d18800;
+            box-shadow: 0 0 0 0.25rem #d18800 !important;
+            font-family: 'Josefin Sans';
+            font-size: 22px;
+        }
+
+        .form-control::placeholder {
+            color: black;
+        }
+
+        /* Navigation */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #navbar {
+            overflow: hidden;
+            background-color: wheat;
+            padding: 90px 10px;
+            transition: 0.4s;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 99;
+        }
+
+        #navbar a {
+            float: left;
+            color: wheat;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 25px;
+            border-radius: 4px;
+            font-weight: 200;
+        }
+
+        #navbar #logo {
+            font-size: 35px;
+            font-weight: bold;
+            /* transition: 0.4s; */
+        }
+
+        #navbar a:hover {
+            /* font-weight: 600; */
+            color: rgb(255, 199, 143);
+            background-color: #00000062;
+        }
+
+        #navbar a.active {
+            font-weight: 600;
+            color: orangered;
+        }
+
+        #navbar-right {
+            float: right;
+        }
+
+        @media screen and (max-width: 580px) {
+            #navbar {
+                padding: 20px 10px !important;
+            }
+
+            #navbar a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            #navbar-right {
+                float: none;
+            }
+        }
+
+        .logoimg {
+            width: auto;
+            height: 100px;
+            margin: -144px -123px -135px -6px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="navbar">
+        <a href="homepage.html" id="logo"><img class="logoimg"
+                src="https://static.thenounproject.com/png/3542-200.png"></a>
+        <div id="navbar-right">
+            <a href="homepage.html">Home</a>
+            <a href="dictionary.html">Dictionary</a>
+            <a class="active" href="synonyms.html">Synonyms</a>
+            <a href="quotes.html">Quotes</a>
+            <a href="rhymes.html">Rhymes</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="center">Synonyms</h1>
+        <div class="input-group mb-3">
+            <input id="word" type="text" class="form-control" placeholder="Type your word here" aria-label="word"
+                aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="buttonword" onclick="getWord()">Search</button>
+        </div>
+
+        <article class="episode">
+            <div class="episode__number">Synonyms</div>
+            <div class="episode__content">
+                <div class="title" id="list"></div>
+            </div>
+        </article>
+        <br>
+</body>
+
+
+<script>
+    // navbar
+    document.getElementById("navbar").style.backgroundColor = "rgba(209, 136, 0, 0)";
+    // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+            document.getElementById("navbar").style.padding = "30px 10px";
+            document.getElementById("navbar").style.backgroundColor = "#d18800";
+            document.getElementById("logo").style.fontSize = "25px";
+        } else {
+            document.getElementById("navbar").style.padding = "80px 10px";
+            document.getElementById("logo").style.fontSize = "35px";
+            document.getElementById("navbar").style.backgroundColor = "rgba(209, 136, 0, 0)";
+        }
+    }
+
+    const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
+
+
+    const getWord = () => {
+        // Chech if word is found
+        let wordValue = document.getElementById('word').value;
+
+        console.log(wordValue);
+        fetch(url + wordValue).then(res => res.json()).then(
+            data => {
+                // When word is not found
+                if (data.title == 'No Definitions Found') {
+                    document.getElementById('list').innerHTML = `
+                        <h5 class="card-title">No result</h5>
+                        `;
+                    return;
+                }
+
+                // When word is found
+                let synonymResult;
+                i = 0;
+                let j = 0
+                document.getElementById('list').innerHTML = `<ul>`;
+                while (i < data[0].meanings.length) {
+                    while (j < data[0].meanings[i].synonyms.length) {
+                        synonymResult = data[0].meanings[i].synonyms[j];
+                        document.getElementById('list').innerHTML += `
+                            <li>${synonymResult}</li>
+                        `;
+                        j++;
+                    }
+                    i++;
+                }
+                document.getElementById('list').innerHTML += `</ul>`;
+                console.log(synonymResult);
+
+            }
+        ).catch(error => console.log(error));
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@100&display=swap');
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #navbar {
+        overflow: hidden;
+        background-color: wheat;
+        padding: 90px 10px;
+        transition: 0.4s;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 99;
+    }
+
+    #navbar a {
+        float: left;
+        color: wheat;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 25px;
+        border-radius: 4px;
+        font-weight: 200;
+    }
+
+    #navbar a:hover {
+        background-color: #00000062;
+        color: rgb(255, 199, 143);
+    }
+
+    #navbar a.active {
+        font-weight: 600;
+        color: orangered;
+    }
+
+    #navbar-right {
+        float: right;
+    }
+
+    @media screen and (max-width: 580px) {
+        #navbar {
+            padding: 20px 10px !important;
+        }
+
+        #navbar a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+
+        #navbar-right {
+            float: none;
+        }
+    }
+
+    .logoimg {
+        width: auto;
+        height: 100px;
+        margin: -144px -123px -135px -6px;
+    }
+
+    .rhymeBG {
+        background-image: url('https://wallpaperaccess.com/full/253342.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        display: block;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .rhyme-container {
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 238px;
+        color: wheat;
+        text-align: center;
+        margin-bottom: 100px;
+    }
+
+    .rhyme-header {
+        font-family: "Taviraj";
+        margin-top: -12px;
+        margin-bottom: 0.5rem;
+        font-weight: 1000;
+        font-size: 100px;
+        text-align: center;
+        line-height: 1.2;
+        color: #d18800;
+    }
+
+    .rhyme-heading {
+        font-family: 'Josefin Sans';
+        font-size: 22px;
+    }
+
+    .form-control {
+        background-color: #f5deb370;
+        border: transparent;
+        font-family: 'Josefin Sans';
+    }
+
+    .form-control:focus {
+        color: white;
+        background-color: #f5deb370;
+        border: #d18800;
+        box-shadow: 0 0 0 0.25rem #d18800 !important;
+        font-family: 'Josefin Sans';
+        font-size: 22px;
+    }
+
+    .btn,
+    .btn-primary,
+    .mt-2 {
+        background-color: #d18800 !important;
+        border-color: #d18800 !important;
+        color: white !important;
+        margin: 0 auto !important;
+        margin-top: 5px !important;
+    }
+
+    .btn:hover,
+    .btn-primary:hover,
+    .mt-2:hover {
+        font-weight: 700;
+    }
+
+    .form-label {
+        font-family: 'Josefin Sans';
+    }
+
+    .rhyme-input {
+        margin-bottom: 20px;
+    }
+
+    .rhyme-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .rhyme-list li {
+        font-size: 24px;
+        margin-bottom: 10px;
+        width: 30%;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+</style>
+
+<body class="rhymeBG">
+    <div id="navbar">
+        <a href="homepage.html" id="logo"><img class="logoimg"
+                src="https://static.thenounproject.com/png/3542-200.png"></a>
+        <div id="navbar-right">
+            <a href="homepage.html">Home</a>
+            <a href="dictionary.html">Dictionary</a>
+            <a href="synonyms.html">Synonyms</a>
+            <a href="quotes.html">Quotes</a>
+            <a class="active" href="rhymes.html">Rhymes</a>
+        </div>
+    </div>
+
+    <div class="container rhyme-container">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <h1 class="rhyme-header">Rhyme Finder</h1>
+                <label for="wordInput" class="form-label">Enter a word:</label>
+                <input type="text" id="wordInput" class="form-control" placeholder="Type a word">
+                <button id="getRhymeButton" class="btn btn-primary mt-2">Get Rhyme</button>
+                <div id="rhymeDisplay" class="mt-3"></div>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // navbar
+        document.getElementById("navbar").style.backgroundColor = "rgba(209, 136, 0, 0)";
+        // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+                document.getElementById("navbar").style.padding = "30px 10px";
+                document.getElementById("navbar").style.backgroundColor = "#d18800";
+                document.getElementById("logo").style.fontSize = "25px";
+            } else {
+                document.getElementById("navbar").style.padding = "80px 10px";
+                document.getElementById("logo").style.fontSize = "35px";
+                document.getElementById("navbar").style.backgroundColor = "rgba(209, 136, 0, 0)";
+            }
+        }
+
+        //api
+        const apiKey = "Qe5eP9DJqYNtc9ijojcW6g==9FQ5aWiA3MTU89Nd";
+        const getRhymeButton = $('#getRhymeButton');
+        const wordInput = $('#wordInput');
+        const rhymeDisplay = $('#rhymeDisplay');
+
+        getRhymeButton.click(() => {
+            const word = wordInput.val();
+
+            if (!word) {
+                alert('Please enter a word');
+                return;
+            }
+
+            $.ajax({
+                method: 'GET',
+                url: `https://api.api-ninjas.com/v1/rhyme?word=${word}`,
+                headers: { 'X-Api-Key': apiKey },
+                contentType: 'application/json',
+                success: function (result) {
+                    displayRhyme(result, word);
+                },
+                error: function ajaxError(jqXHR) {
+                    console.error('Error: ', jqXHR.responseText);
+                    displayRhymeError();
+                }
+            });
+        });
+
+        function displayRhyme(rhymeData, originalWord) {
+            const rhymes = rhymeData || [];
+            if (rhymes.length > 0) {
+                const rhymesList = rhymes.map(rhyme => `<li>${rhyme}</li>`).join('');
+                const rhymesHtml = `<p class="rhyme-heading">Rhymes for "${originalWord}"</p><ul class="rhyme-list">${rhymesList}</ul>`;
+                rhymeDisplay.html(rhymesHtml);
+            } else {
+                rhymeDisplay.html(`<p class="rhyme-heading">No rhymes found for "${originalWord}". Try a different word!</p>`);
+            }
+        }
+
+        function displayRhymeError() {
+            rhymeDisplay.html('<p>Error fetching rhyme. Please try again.</p>');
+        }
+    </script>
+</body>
+
+</html>

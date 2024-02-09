@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+/* Navigation */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#navbar {
+    overflow: hidden;
+    background-color: wheat;
+    padding: 90px 10px;
+    transition: 0.4s;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+}
+
+#navbar a {
+    float: left;
+    color: wheat;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+    font-weight: 200;
+}
+
+#navbar #logo {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#navbar a:hover {
+    color: rgb(255, 199, 143);
+    background-color: #00000062;
+}
+
+#navbar a.active {
+    font-weight: 600;
+    color: orangered;
+}
+
+#navbar-right {
+    float: right;
+}
+
+@media screen and (max-width: 580px) {
+    #navbar {
+        padding: 20px 10px !important;
+    }
+
+    #navbar a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    #navbar-right {
+        float: none;
+    }
+}
+
+.logoimg {
+    width: auto;
+    height: 100px;
+    margin: -144px -123px -135px -6px;
+}
+
+
+/* Quotes styling */
+
+#quoteDisplay {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#quoteDisplay p {
+    margin-bottom: -2px;
+}
+
+.quotes-header1 {
+    font-family: "Taviraj";
+    margin-top: -12px;
+    margin-bottom: 0.5rem;
+    font-weight: 1000;
+    font-size: 100px;
+    text-align: center;
+    line-height: 1.2;
+    color: #d18800;
+}
+
+.quotesBG {
+    background-image: url("https://wallpaperaccess.com/full/253342.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: block;
+    background-size: cover;
+    background-position: center;
+}
+
+.TopImg {
+    margin-bottom: 71px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: 167px;
+    background-attachment: fixed;
+    opacity: 90%;
+}
+
+.BottomImg {
+    position: fixed;
+    right: 0;
+    top: 111px;
+    width: auto;
+    height: 167px;
+    background-attachment: fixed;
+    opacity: 90%;
+}
+
+.btnGenerate {
+    background-color: #d18800 !important;
+    border-color: #d18800 !important;
+    color: white !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+.btnGenerate:hover {
+    box-shadow: 0 0 0 0.25rem #d18800 !important;
+    font-weight: 700;
+}
+
+#quoteDisplay {
+    background-color: #f5deb370;
+    padding: 20px;
+    border: 2px solid #d18800;
+    color: wheat;
+    font-weight: 500;
+    font-family: 'Averia Serif Libre';
+    font-size: 23px;
+}
+
+.quote-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 238px;
+}
+
+
+.qHistory {
+    color: #d18800;
+    font-family: 'Josefin Sans';
+    text-align: justify;
+}
+
+.quote-container2 {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 330px;
+    margin-bottom: 175px;
+}
+
+.quote-container2 p::first-letter {
+    font-size: 3em;
+    float: left;
+    margin-right: 8px;
+    line-height: 1.5;
+    font-family: 'Niconne';
+    color: #d18800;
+}
+
+@keyframes flicker {
+    0% { background-color: rgba(245, 222, 179, 0.493); }
+    50% { background-color: rgba(245, 222, 179, 0.801); }
+    100% { background-color: rgba(245, 222, 179, 0.493); }
+}
+
+#historyButton {
+    animation: flicker 1.5s infinite;
+    background-color: wheat;
+    color: orange !important;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Center the button within container */
+.quote-container {
+    text-align: center;
+}
+
+/* Rhymes styling */
+
+.rhyme-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 238px;
+    color: wheat;
+}
+
+.rhyme-header {
+    font-family: "Taviraj";
+    margin-top: -12px;
+    margin-bottom: 0.5rem;
+    font-weight: 1000;
+    font-size: 100px;
+    text-align: center;
+    line-height: 1.2;
+    color: #d18800;
+}
+
+#rhymeDisplay {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #d18800;
+    background-color: #f5deb370;
+    color: wheat;
+    font-weight: 500;
+    font-family: 'Averia Serif Libre';
+    font-size: 23px;
+}
+
+
+
+/* footer */
+
+.footer {
+    background-color: rgba(245, 222, 179, 0.486);
+    transition: background-color 0.3s, padding 0.3s;
+    padding: 20px;
+    color: #d18800;
+    font-weight: 600;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+}
+
+.center { text-align: center; }
+
+.container {
+  width: 95%;
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.episode {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  position: relative;
+}
+
+
+
+.episode__number {
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  text-align: center;
+  height: calc(10vw + 20px);
+  transition: all 0.2s ease-in;
+}
+
+.episode__content {
+  border-top: 2px solid #fff;
+  display: grid;
+  padding: 15px 0;
+}
+
+.episode__content .title {
+  font-weight: 400
+}
+
+.episode__content .story {
+  line-height: 26px;
+}
+
+@media (max-width: 600px) {
+  .episode__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .episode__content .story {
+    font-size: 15px;
+  }
+}
